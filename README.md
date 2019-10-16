@@ -63,7 +63,9 @@ Array:  Array of hashes, each of format: `{ title: 'Field name', value: field_va
 
 Channels can be made available by setting ENV variables beginning with `SLACK_URL_`.
 
-If you are using Rails credentials, the `:slack` will take priority over ENV variables, ir present.
+If you are using Rails credentials, the `:slack` will take priority over ENV variables, if present.
+
+The title field will default to `ENV['SLACK_DEFAULT_TITLE']`, if present.
 
 ## License
 

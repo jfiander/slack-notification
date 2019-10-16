@@ -16,7 +16,7 @@ class SlackNotification
 
   def data
     @data = {}
-    @data['title'] = @title || 'Notification'
+    @data['title'] = @title || ENV['SLACK_DEFAULT_TITLE'] || 'Notification'
     @data['fallback'] = @fallback || @data['title']
     @data['fields'] = @fields if @fields.present?
     @data['color'] = slack_color
