@@ -29,13 +29,13 @@ gem install slack-notification
 
 ```ruby
 SlackNotification.new(
-    channel: 'channel-name-here', type: :success, title: 'Something Happened',
-    fallback: "Plain-text version of the message.",
-    fields: [
+  channel: 'channel-name-here', type: :success, title: 'Something Happened',
+  fallback: "Plain-text version of the message.",
+  fields: [
     { title: 'Field one', value: value_one, short: true },
     { title: 'Field two', value: value_two, short: true },
     { title: 'Longer field that needs more space.', value: value_three, short: false }
-    ]
+  ]
 ).notify!
 ```
 
