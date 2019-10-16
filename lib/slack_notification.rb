@@ -18,7 +18,7 @@ class SlackNotification
     @data = {}
     @data['title'] = @title || ENV['SLACK_DEFAULT_TITLE'] || 'Notification'
     @data['fallback'] = @fallback || @data['title']
-    @data['fields'] = @fields if @fields.present?
+    @data['fields'] = @fields if @fields
     @data['color'] = slack_color
     @data['footer'] = Rails.env if defined?(Rails)
     @data
@@ -31,7 +31,7 @@ class SlackNotification
 private
 
   def notifier
-    raise "Missing notifier url for #{@channel}." if slack_urls[@channel].blank?
+    raise "Missing notifier url for #{@channel}." unless slack_urls[@channel]
 
     Slack::Notifier.new(slack_urls[@channel])
   end
@@ -56,7 +56,7 @@ private
   end
 
   def slack_color
-    return '#CCCCCC' if @type.blank?
+    return '#CCCCCC' unless @type
 
     {
       success: '#1086FF', info: '#99CEFF',
@@ -66,15 +66,15 @@ private
 
   def validated_channel(channel = nil)
     channel = channel.delete('#')
-    unknown_channel if channel.present? && !channel.in?(slack_urls.keys)
+    unknown_channel(channel) unless slack_urls.keys.include?(channel)
 
-    channel = 'notifications' if channel.blank?
-    channel = 'test' unless Rails.env.production?
+    channel ||= 'notifications'
+    channel = 'test' if defined?(Rails) && !Rails.env.production?
     channel
   end
 
-  def unknown_channel
-    raise ArgumentError, 'Unknown channel.'
+  def unknown_channel(channel)
+    raise ArgumentError, "Unknown channel: #{channel}"
   end
 
   def slack_urls
@@ -97,7 +97,7 @@ private
 
   def validated_type(type = nil)
     valid_types = %i[success info warning failure]
-    return type if type.blank? || type.in?(valid_types)
+    return type if type.nil? || valid_types.include?(type)
 
     raise ArgumentError, 'Unrecognized notification type.'
   end
