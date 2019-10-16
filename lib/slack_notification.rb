@@ -90,7 +90,7 @@ private
   end
 
   def credentials_urls
-    Rails.application.credentials.slack.mapeach_with_object({}) do |(k, v), h|
+    Rails.application.credentials.slack.each_with_object({}) do |(k, v), h|
       h[k.to_s.gsub('_', '-')] = v
     end
   end
