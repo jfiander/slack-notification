@@ -55,9 +55,9 @@ Available notification types:
 
 Fields can be formatted in several ways:
 
-String: The fields value becomes the message title, and no fields are submitted.
-Hash:   Format: `{ title_1: :value_1, [...] }`
-Array:  Array of hashes, each of format: `{ title: 'Field name', value: field_value, short: true }`
+- String: The fields value becomes the message title, and no fields are submitted.
+- Hash:   Format: `{ title_1: :value_1, [...] }`
+- Array:  Array of hashes, each of format: `{ title: 'Field name', value: field_value, short: true }`
 
 ### Configuration
 
