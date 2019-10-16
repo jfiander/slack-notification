@@ -86,7 +86,7 @@ private
   end
 
   def credentials_urls?
-    defined?(Rails) && Rails.application.credentials.respond_to?(:slack)
+    defined?(Rails) && !Rails.application.credentials.slack.nil?
   end
 
   def credentials_urls
