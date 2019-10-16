@@ -2,11 +2,10 @@
 
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'slack_notification/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'slack-notification'
-  spec.version       = Slack::Notification::VERSION
+  spec.version       = '0.1.0'
   spec.authors       = ['Julian Fiander']
   spec.email         = ['julian@fiander.one']
 
