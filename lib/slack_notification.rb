@@ -31,9 +31,11 @@ class SlackNotification
 private
 
   def notifier
+    # :nocov:
     raise "Missing notifier url for #{@channel}." unless slack_urls[@channel]
 
     Slack::Notifier.new(slack_urls[@channel])
+    # :nocov:
   end
 
   def validated_fields(fields)
@@ -90,9 +92,11 @@ private
   end
 
   def credentials_urls
+    # :nocov:
     Rails.application.credentials.slack.each_with_object({}) do |(k, v), h|
       h[k.to_s.gsub('_', '-')] = v
     end
+    # :nocov:
   end
 
   def validated_type(type = nil)
