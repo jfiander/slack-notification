@@ -78,9 +78,21 @@ private
   end
 
   def slack_urls
+    return credentials_urls if credentials_urls?
+
     ENV.select { |k, _| k.match?(/SLACK_URL_/) }.map do |key, url|
       { key.gsub('SLACK_URL_', '').downcase => url }
     end.reduce({}, :merge)
+  end
+
+  def credentials_urls?
+    defined?(Rails) && Rails.application.credentials.respond_to?(:slack)
+  end
+
+  def credentials_urls
+    Rails.application.credentials.slack.mapeach_with_object({}) do |(k, v), h|
+      h[k.to_s.gsub('_', '-')] = v
+    end
   end
 
   def validated_type(type = nil)

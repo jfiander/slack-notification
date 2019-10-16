@@ -59,7 +59,11 @@ String: The fields value becomes the message title, and no fields are submitted.
 Hash:   Format: `{ title_1: :value_1, [...] }`
 Array:  Array of hashes, each of format: `{ title: 'Field name', value: field_value, short: true }`
 
+### Configuration
+
 Channels can be made available by setting ENV variables beginning with `SLACK_URL_`.
+
+If you are using Rails credentials, the `:slack` will take priority over ENV variables, ir present.
 
 ## License
 
