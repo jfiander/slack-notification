@@ -39,7 +39,9 @@ RSpec.describe SlackNotification, type: :lib do
     ENV['SLACK_URL_TEST'] = 'https://slack.com/test'
 
     @hash_notification = SlackNotification.new(
-      base_notification_details.merge(fields: { 'One' => 'one', 'Two' => 'two', 'Three' => 'three' })
+      base_notification_details.merge(
+        fields: { 'One' => 'one', 'Two' => 'two', 'Three' => 'three' }
+      )
     )
 
     @array_notification = SlackNotification.new(

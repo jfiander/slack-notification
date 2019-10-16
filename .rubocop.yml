@@ -1,0 +1,77 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - bin/**/*
+    - config/**/*
+    - db/**/*
+    - vendor/**/*
+    - tmp/**/*
+
+Layout/IndentFirstHashElement:
+  EnforcedStyle: consistent
+Layout/AccessModifierIndentation:
+  EnforcedStyle: outdent
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: true
+Layout/AlignArray:
+  Enabled: true
+Layout/AlignHash:
+  Enabled: true
+Layout/EmptyLineAfterGuardClause:
+  Enabled: true
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+Layout/SpaceInsideArrayLiteralBrackets:
+  EnforcedStyle: no_space
+
+Lint/UnusedMethodArgument:
+  Enabled: true
+Lint/UselessAssignment:
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 100
+Metrics/MethodLength:
+  Enabled: true
+Metrics/ClassLength:
+  Enabled: true
+  Max: 125
+Metrics/ModuleLength:
+  Max: 125
+Metrics/ParameterLists:
+  Enabled: true
+Metrics/CyclomaticComplexity:
+  Enabled: true
+Metrics/AbcSize:
+  Enabled: true
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: true
+Style/NumericLiterals:
+  Enabled: true
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+Style/AndOr:
+  Enabled: true
+Style/ClassCheck:
+  Enabled: true
+Style/GuardClause:
+  Enabled: true
+
+Security/Eval:
+  Enabled: true
+Security/JSONLoad:
+  Enabled: true
+Security/YAMLLoad:
+  Enabled: true

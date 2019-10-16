@@ -12,5 +12,4 @@ SimpleCov.minimum_coverage(100)
 require 'slack_notification'
 
 RSpec.configure do |config|
-  #
 end
