@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'slack_notification/version'
+require 'slack-notifier'
 
 class SlackNotification
   attr_accessor :type, :dryrun, :title, :fallback, :fields, :channel
