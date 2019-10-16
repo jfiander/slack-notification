@@ -1,5 +1,8 @@
 # SlackNotification
 
+[![Gem Version](https://img.shields.io/gem/v/slack-notification.svg)](https://rubygems.org/gems/slack-notification)
+[![Build Status](https://travis-ci.org/jfiander/slack-notification.svg)](https://travis-ci.org/jfiander/slack-notification)
+
 This is a simplified API for sending Slack messages from (e.g.) a Rails application.
 
 ## Installation
