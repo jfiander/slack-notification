@@ -66,7 +66,7 @@ Fields can be formatted in several ways:
 
 Channels can be made available by setting ENV variables beginning with `SLACK_URL_`.
 
-If you are using Rails credentials, the `:slack` will take priority over ENV variables, if present.
+If you are using Rails credentials, `.slack` will take priority over ENV variables, if present.
 
 The title field will default to `ENV['SLACK_DEFAULT_TITLE']`, if present.
 
