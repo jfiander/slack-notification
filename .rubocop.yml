@@ -1,5 +1,6 @@
 AllCops:
   TargetRubyVersion: 2.5
+  NewCops: enable
   Exclude:
     - bin/**/*
     - config/**/*
@@ -7,18 +8,20 @@ AllCops:
     - vendor/**/*
     - tmp/**/*
 
-Layout/IndentFirstHashElement:
-  EnforcedStyle: consistent
 Layout/AccessModifierIndentation:
   EnforcedStyle: outdent
-Layout/EmptyLinesAroundAccessModifier:
-  Enabled: true
-Layout/AlignArray:
-  Enabled: true
-Layout/AlignHash:
+Layout/ArrayAlignment:
   Enabled: true
 Layout/EmptyLineAfterGuardClause:
   Enabled: true
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: true
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+Layout/HashAlignment:
+  Enabled: true
+Layout/LineLength:
+  Max: 100
 Layout/SpaceInsideBlockBraces:
   EnforcedStyle: space
   EnforcedStyleForEmptyBraces: no_space
@@ -33,8 +36,6 @@ Lint/UnusedMethodArgument:
 Lint/UselessAssignment:
   Enabled: true
 
-Metrics/LineLength:
-  Max: 100
 Metrics/MethodLength:
   Enabled: true
 Metrics/ClassLength:
@@ -51,23 +52,24 @@ Metrics/AbcSize:
 
 Naming/MemoizedInstanceVariableName:
   Enabled: false
-Naming/UncommunicativeMethodParamName:
+Naming/MethodParameterName:
   Enabled: false
 
-Style/Documentation:
-  Enabled: false
-Style/FrozenStringLiteralComment:
-  Enabled: true
-Style/NumericLiterals:
-  Enabled: true
-Style/StringLiterals:
-  EnforcedStyle: single_quotes
 Style/AndOr:
   Enabled: true
 Style/ClassCheck:
   Enabled: true
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: true
 Style/GuardClause:
   Enabled: true
+Style/NumericLiterals:
+  Enabled: true
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
 
 Security/Eval:
   Enabled: true

@@ -93,8 +93,8 @@ private
 
   def credentials_urls
     # :nocov:
-    Rails.application.credentials.slack.each_with_object({}) do |(k, v), h|
-      h[k.to_s.gsub('_', '-')] = v
+    Rails.application.credentials.slack.transform_keys do |key|
+      key.to_s.gsub('_', '-')
     end
     # :nocov:
   end
