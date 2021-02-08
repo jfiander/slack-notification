@@ -20,7 +20,7 @@ class SlackNotification
     @data['fallback'] = @fallback || @data['title']
     @data['fields'] = @fields if @fields
     @data['color'] = slack_color
-    @data['footer'] = Rails.env if defined?(Rails)
+    @data['footer'] = footer if footer
     @data
   end
 
@@ -36,6 +36,22 @@ private
 
     Slack::Notifier.new(slack_urls[@channel])
     # :nocov:
+  end
+
+  def footer
+    return @footer unless @footer.nil?
+
+    # :nocov:
+    if ENV.key?('ASSET_ENVIRONMENT')
+      @footer = ENV['ASSET_ENVIRONMENT']
+    elsif defined?(Rails)
+      @footer = Rails.env
+    elsif ENV.key?('SLACK_FOOTER')
+      @footer = ENV['SLACK_FOOTER']
+    end
+    # :nocov:
+
+    @footer
   end
 
   def validated_fields(fields)

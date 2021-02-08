@@ -12,4 +12,7 @@ SimpleCov.minimum_coverage(100)
 require 'slack_notification'
 
 RSpec.configure do |config|
+  config.before(:suite) do
+    ENV.delete('ASSET_ENVIRONMENT')
+  end
 end
