@@ -87,7 +87,7 @@ private
     unknown_channel(channel) unless slack_urls.keys.include?(channel)
 
     channel ||= 'notifications'
-    channel = 'test' if defined?(Rails) && !Rails.env.production?
+    channel = 'test' if defined?(Rails) && !(Rails.env.production? || Rails.env.staging?)
     channel
   end
 
