@@ -70,6 +70,8 @@ Style/NumericLiterals:
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: single_quotes
+Style/HashTransformKeys:
+  Enabled: false
 
 Security/Eval:
   Enabled: true
