@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    slack-notification (0.1.8)
+    slack-notification (0.1.9)
       slack-notifier (~> 2.3)
 
 GEM
@@ -46,7 +46,7 @@ GEM
       docile (~> 1.1)
       simplecov-html (~> 0.11)
     simplecov-html (0.12.2)
-    slack-notifier (2.3.2)
+    slack-notifier (2.4.0)
     unicode-display_width (1.7.0)
 
 PLATFORMS
