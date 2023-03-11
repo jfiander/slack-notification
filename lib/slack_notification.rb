@@ -3,7 +3,7 @@
 require 'slack-notifier'
 
 class SlackNotification
-  attr_accessor :type, :dryrun, :title, :fallback, :fields, :channel
+  attr_accessor :type, :dryrun, :title, :fallback, :fields, :blocks, :channel
 
   def initialize(options = {})
     @channel = validated_channel(options[:channel].to_s)
@@ -12,6 +12,7 @@ class SlackNotification
     @fallback = options[:fallback]
     @dryrun = options[:dryrun] || (defined?(Rails) && Rails.env.test?)
     @fields = validated_fields(options[:fields])
+    @blocks = options[:blocks]
   end
 
   def data
@@ -25,7 +26,7 @@ class SlackNotification
   end
 
   def notify!
-    @dryrun ? data : notifier.post(attachments: [data])
+    @dryrun ? data : notifier.post(attachments: [data], blocks: @blocks)
   end
 
 private
