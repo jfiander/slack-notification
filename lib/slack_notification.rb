@@ -84,7 +84,7 @@ private
   end
 
   def validated_channel(channel = nil)
-    channel = channel.delete('#')
+    channel = channel.delete('#').gsub('_', '-')
     unknown_channel(channel) unless slack_urls.keys.include?(channel)
 
     channel ||= 'notifications'
@@ -100,7 +100,7 @@ private
     return credentials_urls if credentials_urls?
 
     ENV.select { |k, _| k.match?(/SLACK_URL_/) }.map do |key, url|
-      { key.gsub('SLACK_URL_', '').downcase => url }
+      { key.gsub('SLACK_URL_', '').gsub('_', '-').downcase => url }
     end.reduce({}, :merge)
   end
 
