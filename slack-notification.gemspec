@@ -5,8 +5,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'slack-notification'
-  spec.version       = '0.1.11'
-  spec.date          = '2023-03-12'
+  spec.version       = '0.1.12'
+  spec.date          = '2023-03-13'
   spec.authors       = ['Julian Fiander']
   spec.email         = ['julian@fiander.one']
 
@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '~> 2.5'
+  spec.required_ruby_version = '>= 2.5'
 
   spec.add_development_dependency 'bundler',   '~> 2.0'
   spec.add_development_dependency 'rake',      '~> 12.3', '>= 12.3.3'
