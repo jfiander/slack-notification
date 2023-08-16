@@ -5,8 +5,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'slack-notification'
-  spec.version       = '0.1.12'
-  spec.date          = '2023-03-13'
+  spec.version       = '0.1.13'
+  spec.date          = '2023-08-15'
   spec.authors       = ['Julian Fiander']
   spec.email         = ['julian@fiander.one']
 

@@ -13,6 +13,7 @@ class SlackNotification
     @dryrun = options[:dryrun] || (defined?(Rails) && Rails.env.test?)
     @fields = validated_fields(options[:fields])
     @blocks = options[:blocks]
+    @footer = options[:footer]
   end
 
   def data
