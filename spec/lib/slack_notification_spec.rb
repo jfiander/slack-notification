@@ -76,6 +76,18 @@ RSpec.describe SlackNotification, type: :lib do
     expect(@string_notification.notify!).to eql(notification_with_string)
   end
 
+  it 'allows invalid types of fields with only_blocks' do
+    expect do
+      SlackNotification.new(
+        type: :info, title: 'Test Notification',
+        fallback: 'This is a test notification',
+        fields: Set.new, channel: 'test',
+        only_blocks: true,
+        dryrun: true
+      )
+    end.not_to raise_error
+  end
+
   it 'rejects invalid types of fields' do
     expect do
       SlackNotification.new(
