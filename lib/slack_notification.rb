@@ -26,8 +26,10 @@ class SlackNotification
     @data
   end
 
-  def notify!
-    @dryrun ? data : notifier.post(attachments: [data], blocks: @blocks)
+  def notify!(only_blocks: false)
+    options = { blocks: @blocks }
+    options.merge!(attachments: [data]) unless only_blocks
+    @dryrun ? data : notifier.post(**options)
   end
 
 private
