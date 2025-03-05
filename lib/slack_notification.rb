@@ -3,7 +3,7 @@
 require 'slack-notifier'
 
 class SlackNotification
-  attr_accessor :type, :dryrun, :title, :fallback, :fields, :blocks, :channel
+  attr_accessor :type, :dryrun, :title, :fallback, :fields, :blocks, :channel, :only_blocks
 
   def initialize(options = {})
     @channel = validated_channel(options[:channel].to_s)
@@ -14,6 +14,7 @@ class SlackNotification
     @fields = validated_fields(options[:fields])
     @blocks = options[:blocks]
     @footer = options[:footer]
+    @only_blocks = options[:only_blocks]
   end
 
   def data
@@ -26,7 +27,7 @@ class SlackNotification
     @data
   end
 
-  def notify!(only_blocks: false)
+  def notify!
     options = { blocks: @blocks }
     options.merge!(attachments: [data]) unless only_blocks
     @dryrun ? data : notifier.post(**options)
@@ -64,7 +65,7 @@ private
     elsif fields.is_a?(String)
       @title = fields
       fields = []
-    elsif !fields.is_a?(Array)
+    elsif !only_blocks && !fields.is_a?(Array)
       raise ArgumentError, 'Unsupported fields format.'
     end
 
