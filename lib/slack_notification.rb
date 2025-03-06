@@ -65,9 +65,7 @@ private
     elsif fields.is_a?(String)
       @title = fields
       fields = []
-    elsif only_blocks
-      return
-    elsif !fields.is_a?(Array)
+    elsif !only_blocks && !fields.is_a?(Array)
       raise ArgumentError, 'Unsupported fields format.'
     end
 
