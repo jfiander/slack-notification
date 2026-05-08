@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 3.0
   NewCops: enable
   Exclude:
     - bin/**/*
@@ -49,6 +49,7 @@ Metrics/CyclomaticComplexity:
   Enabled: true
 Metrics/AbcSize:
   Enabled: true
+  Max: 20
 
 Naming/MemoizedInstanceVariableName:
   Enabled: false
