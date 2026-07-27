@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    slack-notification (0.1.19)
+    slack-notification (0.1.18)
       slack-notifier (~> 2.3)
 
 GEM
@@ -10,7 +10,7 @@ GEM
     ast (2.4.3)
     diff-lcs (1.6.2)
     docile (1.4.1)
-    json (2.19.5)
+    json (2.21.1)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
     parallel (2.1.0)
